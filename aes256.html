@@ -8,10 +8,23 @@
 <body style="background-color: #cbe8f5;">
 <h1>AES256 Key</h1>
 
-<p>Welcome to the AES256 key page.</p>
-<p>This is a second page in your GitHub Pages site.</p>
+<p id="generatedText">Loading key...</p>
+
+<button onclick="generateNewKey()">Generate New Key</button>
 
 <a href="index.html"><button>Back to Home</button></a>
+
+<script>
+  function generateNewKey() {
+    let key = '';
+    for (let i = 0; i < 64; i++) {
+      key += Math.floor(Math.random() * 16).toString(16);
+    }
+    document.getElementById('generatedText').textContent = 'AES256 Key: ' + key;
+  }
+
+  generateNewKey();
+</script>
 
 </body>
 
